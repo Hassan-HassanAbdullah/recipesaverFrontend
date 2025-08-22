@@ -1,0 +1,9 @@
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+/* styles.css or Tailwind classes can be used */
+.blur-background {
+  pointer-events: none; /* disables interaction */
+  filter: blur(4px);
+}

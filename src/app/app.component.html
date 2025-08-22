@@ -1,0 +1,22 @@
+<div class="relative ">
+  <app-navbar (authCard)="handleAuthCard($event)"></app-navbar>
+
+  <!-- Background Blur -->
+  <div 
+    *ngIf="authCardVisible" 
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+    (click)="handleAuthCard(false)">
+  </div>
+
+  <!-- Login Card in Center -->
+  <div *ngIf="authCardVisible"
+       class="fixed inset-0 z-50 flex items-center justify-center">
+    <app-auth-card (close)="handleAuthCard(false)"></app-auth-card>
+  </div>
+
+  <router-outlet></router-outlet>
+  
+  <app-toast></app-toast>
+
+  <app-footer></app-footer>
+</div>

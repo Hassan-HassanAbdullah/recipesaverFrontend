@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+@import "flowbite/src/themes/default";
+
+
+@layer utilities {
+  .animate-slide-in {
+    animation: slideInFromRight 0.4s ease-out forwards;
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<div class="min-h-[92vh] pt-28 bg-gray-100 dark:bg-gray-900 transition-colors duration-300 p-6">
+  <div class="max-w-4xl mx-auto">
+    <!-- Page Heading -->
+    <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">🍽️ Saved Recipes</h2>
+
+    <!-- Empty State -->
+    <div *ngIf="savedRecipes.length === 0" class="text-center text-gray-600 dark:text-gray-400">
+      No recipes saved yet. Start exploring and save your favorites!
+    </div>
+
+    <!-- Recipes Grid -->
+    <div *ngIf="savedRecipes.length > 0" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- <div *ngFor="let recipe of savedRecipes" class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border dark:border-gray-700 p-4 flex flex-col justify-between">
+        <div>
+          <img [src]="recipe.image" alt="{{recipe.title}}" class="rounded-xl mb-4 w-full h-40 object-cover" />
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ recipe.title }}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">{{ recipe.description }}</p>
+        </div>
+
+        
+        <div class="mt-4 flex justify-end">
+          <button (click)="deleteRecipe(recipe.id)"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-red-600 border border-red-600 rounded-lg hover:bg-red-100 dark:hover:bg-red-900 transition">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            Delete
+          </button>
+        </div>
+      </div> -->
+
+     
+      <div *ngFor="let recipe of savedRecipes">
+            <app-recipe-card [recipe]="recipe" ></app-recipe-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div
+    class=" border-[0.5px] border-[#3030306e] text-card-foreground bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all cursor-pointer">
+    
+        
+
+
+    <div class="p-4">
+        <div class="flex items-center justify-between mb-2">
+            <div
+                class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-secondary/80 bg-green-100 text-green-600">
+                {{ recipe.cuisine }}
+            </div>
+
+            <div class="flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-star h-4 w-4 text-yellow-400 fill-current"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <span class="text-sm text-gray-600 dark:text-gray-300">{{ recipe.rating }}</span>
+            </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-2  tracking-tight ">
+            {{ recipe.name }}
+        </h3>
+
+        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
+            {{ recipe.description }}
+        </p>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-clock h-4 w-4 text-gray-400"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span class="text-sm text-gray-600 dark:text-gray-300">{{ recipe.time }} mins</span>
+                </div>
+
+                <div class="flex items-center space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-users h-4 w-4 text-gray-400"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                    <span class="text-sm text-gray-600 dark:text-gray-300">{{ recipe.servings }}</span>
+                </div>
+            </div>
+
+            <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent h-10 w-10 transition-colors text-gray-400 hover:text-red-500"
+                (click)="onLike()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-heart h-5 w-5" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+            </button>
+        </div>
+
+        <a routerLink="/recipe-detail" class="block mt-4" [queryParams]="{ recipe: getEncodedRecipe() }">
+            <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-[#EC823C] hover:bg-primary/90 text-white">
+                View Recipe
+            </button>
+        </a>
+    </div>
+</div>
