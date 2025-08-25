@@ -1,18 +1,31 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 import { RecipeCardComponent } from '../../components/recipe-card/recipe-card.component';
+import { FormsModule } from '@angular/forms';
+import { recipes } from '../../Data/full_recipes';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 
 @Component({
   selector: 'app-explore-recipe',
-  imports: [NgClass,NgFor, RecipeCardComponent],
+  imports: [ NgFor,NgIf, RecipeCardComponent, FormsModule,NgxPaginationModule],
   templateUrl: './explore-recipe.component.html',
   styleUrl: './explore-recipe.component.css'
 })
 export class ExploreRecipeComponent {
- 
+
+  selectedCuisine: string = 'all';
+  selectedDishType: string = 'all';
+  filteredRecipes: any[] = [];
+  recipes :any[] = recipes
 
 
-  selectedCuisine: string = '';
+   // ✅ Pagination variables
+  page: number = 1;       // current page
+  pageSize: number = 8;   // recipes per page
+
+
 
   cuisines = [
     { name: 'Italian', icon: '🍝' },
@@ -20,79 +33,36 @@ export class ExploreRecipeComponent {
     { name: 'Mexican', icon: '🌮' },
     { name: 'Indian', icon: '🍛' },
     { name: 'Pakistani', icon: '🍲' },
-    { name: 'Japanese', icon: '🍣' }
-  ];
-
-  selectCuisine(cuisineName: string) {
-    this.selectedCuisine = cuisineName;
-    console.log('Selected:', cuisineName);
-  }
-
-
-
-  recipes = [
-    {
-      name: 'Spicy Mexican Tacos',
-      description: 'A delicious blend of spices...',
-      time: '30 minutes',
-      servings: 4,
-      image: '',
-      cuisine: 'Mexican',
-      rating: 4.5
-    },
-    {
-      name: 'Italian Pasta',
-      description: 'Creamy Alfredo with herbs',
-      time: '25 minutes',
-      servings: 2,
-      image: 'assets/images/pasta.jpg',
-      cuisine: 'Italian',
-      rating: 4.8
-    },
-    {
-      name: 'Chinese Stir Fry',
-      description: 'Quick and healthy stir fry with vegetables',
-      time: '20 minutes',
-      servings: 3,
-      image: 'assets/images/stir-fry.jpg',
-      cuisine: 'Chinese',
-      rating: 4.2
-    },
-    {
-      name: 'Indian Curry',
-      description: 'Rich and flavorful curry with spices',
-      time: '40 minutes',
-      servings: 5,
-      image: 'assets/images/curry.jpg',
-      cuisine: 'Indian',
-      rating: 4.6
-    },
-    {
-      name: 'Japanese Sushi',
-      description: 'Fresh sushi rolls with seafood',
-      time: '1 hour',
-      servings: 6,
-      image: 'assets/images/sushi.jpg',
-      cuisine: 'Japanese',
-      rating: 4.9
-    },
-    {
-      name: 'Pakistani Biryani',
-      description: 'Aromatic rice dish with meat and spices',
-      time: '1.5 hours',
-      servings: 8,
-      image: 'assets/images/biryani.jpg',
-      cuisine: 'Pakistani',
-      rating: 4.7
-    },
+    { name: 'Japanese', icon: '🍣' },
+    { name: 'Balochi', icon: '🍖' }
     
   ];
 
-  get filteredRecipes() {
-    if (!this.selectedCuisine || this.selectedCuisine.trim() === '') {
-    return this.recipes; // agar filter selected nahi to sab recipes dikhao
+  dishTypes = ['Main Course', 'Sweet', 'Dessert', 'Snack'];
+
+  
+
+  constructor() {
+    this.filteredRecipes = this.recipes; // Default show all
   }
-  return this.recipes.filter(recipe => recipe.cuisine === this.selectedCuisine);
+
+  onFilterChange() {
+    this.filteredRecipes = this.recipes.filter(recipe => {
+      const cuisineMatch =
+        this.selectedCuisine === 'all' ||
+        recipe.cuisine === this.selectedCuisine;
+
+      const dishMatch =
+        this.selectedDishType === 'all' ||
+        recipe.dishTypes === this.selectedDishType;
+
+      return cuisineMatch && dishMatch;
+    });
+
+    this.page = 1; // Reset page on filter change
   }
+
+
+  
 
 }

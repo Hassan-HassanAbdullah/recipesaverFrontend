@@ -23,7 +23,20 @@ export class RecipeCardComponent {
   }
 
 
-   getEncodedRecipe() {
+  getEncodedRecipe() {
     return encodeURIComponent(JSON.stringify(this.recipe));
   };
+
+
+
+
+
+  // recipe reating
+  getRandom(min: number, max: number): number {
+    return Math.random() * (max - min) + min;
+  }
+
+  recipeRating = this.getRandom(2, 4.5);
+
+
 }

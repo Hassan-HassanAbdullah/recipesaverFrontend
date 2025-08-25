@@ -64,7 +64,7 @@ export class RecipeGenrateCardComponent {
 
   generateRecipe(): void {
     if (this.ingredients.length === 0) {
-      this.toastService.showToast('error', 'Please add ingredients.');
+      this.toastService.showToast('warning', 'Please add ingredients.');
       return;
     }
 
@@ -115,7 +115,7 @@ export class RecipeGenrateCardComponent {
 
     if (!token) {
       // alert('Please login first');
-      this.toastService.showToast('error', 'Please login first to save recipe ');
+      this.toastService.showToast('warning', 'Please login first to save recipe ');
       return;
     }
 
