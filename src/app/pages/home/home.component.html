@@ -19,13 +19,12 @@
       </h1>
 
       <p class="text-gray-600 text-base sm:text-lg  dark:text-gray-300 max-w-3xl">
-        Discover amazing recipes using ingredients you already have. Our AI-powered recipe generator helps you create
-        culinary masterpieces from everyday leftovers.
+        Apne paas maujood ajzaa se mazedar recipes daryaft karein. Hamara AI-powered recipe generator aapke bachay hue khane se lazeez pakwaan banane mein madad karta hai..
       </p>
 
       <!-- Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 w-full sm:w-auto">
-        <a href="#genrate_recipy">
+        <a href="/genrate_recipy">
           <button type="button"
           class="w-[100%] sm:w-auto justify-center  text-white bg-[#EC823C] hover:bg-[#F76C10] focus:ring-4 focus:outline-none focus:ring-[#F9AF7F] font-medium rounded-lg text-sm px-6 py-3 inline-flex items-center dark:bg-[#F76C10] dark:hover:bg-[#EC823C] dark:focus:ring-[#F9AF7F]">
           <svg class="w-4 h-4 me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -37,10 +36,10 @@
         </button>
       </a>
 
-        <button type="button"
+        <button type="button" routerLink="/explore-recipe"
           class="w-full sm:w-auto text-white bg-[#EC823C] dark:bg-[#F76C10] cursor-not-allowed font-medium rounded-lg text-sm px-6 py-3"
-          disabled>
-          Watch Demo
+          >
+          Explore Recipe
         </button>
       </div>
     </div>
@@ -55,7 +54,7 @@
 <section class=" py-20 bg-white dark:bg-gray-800" id="genrate_recipy">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
           class="lucide lucide-sparkles inline-block text-[#EC823C] mr-3"
@@ -79,6 +78,7 @@
   </div>
 </section>
 <app-explore-recipe></app-explore-recipe>
+<app-about-us></app-about-us>
 
 
 

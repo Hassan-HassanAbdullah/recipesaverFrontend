@@ -3,10 +3,11 @@ import {FormsModule} from '@angular/forms';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { RecipeGenrateCardComponent } from '../../components/recipe-genrate-card/recipe-genrate-card.component';
 import { ExploreRecipeComponent } from '../explore-recipe/explore-recipe.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule,   RecipeGenrateCardComponent, ExploreRecipeComponent],
+  imports: [FormsModule,   RecipeGenrateCardComponent, ExploreRecipeComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
