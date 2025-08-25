@@ -4,10 +4,11 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { RecipeGenrateCardComponent } from '../../components/recipe-genrate-card/recipe-genrate-card.component';
 import { ExploreRecipeComponent } from '../explore-recipe/explore-recipe.component';
 import { RouterLink } from '@angular/router';
+import { AboutUsComponent } from '../about-us/about-us.component';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule,   RecipeGenrateCardComponent, ExploreRecipeComponent, RouterLink],
+  imports: [FormsModule,   RecipeGenrateCardComponent, ExploreRecipeComponent, RouterLink, AboutUsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
